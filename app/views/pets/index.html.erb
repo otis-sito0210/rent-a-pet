@@ -1,0 +1,8 @@
+<h1> Available pets to rent!</h1>
+
+<% @pets.each do |pet| %>
+  <h2><%= pet.name %></h2>
+  <p><%= pet.details %></p>
+  <h4>Price: <%= pet.price %></h4>
+
+<% end %>
