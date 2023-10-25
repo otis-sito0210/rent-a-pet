@@ -1,14 +1,14 @@
 # Clear the existing data
-# User.destroy_all
-# Pet.destroy_all
+User.destroy_all
+Pet.destroy_all
 
 # Create 10 users
-# 10.times do
-#   User.create(
-#     email: Faker::Internet.unique.email,
-#     password: 'password'
-#   )
-# end
+10.times do
+  User.create(
+    email: Faker::Internet.unique.email,
+    password: 'password'
+  )
+end
 
 # Create 30 pets
 30.times do
