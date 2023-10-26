@@ -4,6 +4,11 @@
 <h2> Size: <%= @pet.size %> </h2>
 <h2> Price: <%= @pet.price %> </h2>
 
+<h2> Rented dates: </h2>
+<% @pet.orders.order("date ASC").each do |order| %>
+<h3> <%= order.date %> </h3>
+<% end %>
+
+
 <button class="btn btn-outline-dark"> <%= link_to "Available pets", pets_path %></button>
 <button class="btn btn-outline-dark"> <%= link_to "Rent this pet", new_pet_order_path(pet_id: @pet.id) %></button>
-
