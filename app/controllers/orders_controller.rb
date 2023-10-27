@@ -14,10 +14,20 @@ class OrdersController < ApplicationController
     end
     # @order.pet_id = params[:pet_id]
 
-    if @order.save!
-      redirect_to pet_path(@order.pet_id)
-    else
-      render :new
+    # if @order.save!
+    #   # redirect_to pet_path(@order.pet_id) #posso tirar depois que criar o javascript
+    # else
+    #   render :new
+    # end
+    respond_to do |format|
+      if @order.save!
+        puts "created"
+        format.html { redirect_to pet_path(@pet) }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      else
+        format.html { render "orders/form", status: :unprocessable_entity }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      end
     end
   end
 
