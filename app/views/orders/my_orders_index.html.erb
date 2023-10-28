@@ -1,0 +1,7 @@
+<h1> My Orders!</h1>
+
+<% @orders.each do |order| %>
+  <p>Date: <%= order.date %></p>
+  <p> Pet: <%= link_to order.pet.name %></p>
+  <p> Rented to: <%= "#{order.user.first_name} #{order.user.last_name}" %></p>
+<% end %>
