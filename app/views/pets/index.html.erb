@@ -5,7 +5,8 @@
 
 <div class="container">
 <% @pets.each do |pet| %>
-  <%= cl_image_tag pet.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if pet.photo.key.present? %>
+    <%= cl_image_tag pet.photo.key, height: 300, width: 400, crop: :fill %>
   <h2> <%= link_to pet.name, pet %></h2>
   <p><%= pet.details %></p>
   <h4>Price: <%= pet.price %></h4>
