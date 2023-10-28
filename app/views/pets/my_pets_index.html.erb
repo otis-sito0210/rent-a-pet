@@ -1,13 +1,15 @@
 <h1> My pets!</h1>
 
 
-<button class="btn btn-dark"> <%= link_to "Add new pet", new_pet_path %></button>
-
-<% @pets.each do |pet| %>
-  <h2> <%= link_to pet.name, pet %></h2>
-  <p><%= pet.details %></p>
-  <h4>Price: <%= pet.price %></h4>
-<% end %>
-
-
+<%= link_to "Add new pet", new_pet_path, class:"btn btn-dark" %>
 <%= link_to "Available Pets", pets_path, class: "btn btn-primary" %>
+
+<div class="container">
+  <% @pets.each do |pet| %>
+    <%= cl_image_tag pet.photo.key, height: 300, width: 400, crop: :fill %>
+    <h2><%= link_to pet.name, pet_path(pet), class:"badge bg-primary text-wrap" %></h2>
+    <p><%= pet.details %></p>
+    <h4>Price: <%= pet.price %></h4>
+  <% end %>
+
+</div>

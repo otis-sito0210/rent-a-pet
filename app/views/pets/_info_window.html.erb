@@ -1,0 +1,11 @@
+<%= cl_image_tag pet.photo.key, height: 100, width: 150, crop: :fill %>
+<h2><%= link_to pet.name, pet_path(pet), class:"badge bg-primary text-wrap" %></h2>
+<p><strong>Endereço:</strong><%= pet.address %></p>
+<p><strong>Preço:</strong><%= pet.price %></p>
+
+ <div data-controller="orders-create">
+    <button data-action="click->orders-create#fire" class="btn btn-outline-dark">Rent this pet</button>
+      <div data-orders-create-target="orderElement" class="d-none">
+      <%= render "orders/form", order: @order %>
+      </div>
+  </div>

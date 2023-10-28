@@ -2,6 +2,15 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show]
   def index
     @pets = Pet.all
+    @order = Order.new
+
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {pet: pet})
+      }
+    end
   end
 
   def my_pets_index
@@ -10,6 +19,16 @@ class PetsController < ApplicationController
 
   def show
     @order = Order.new
+
+    if @pet.geocoded?
+      @marker = {
+        lat: @pet.latitude,
+        lng: @pet.longitude
+      }
+    else
+      # Handle the case where geocoding didn't succeed
+      @marker = { lat: 0, lng: 0 }  # Default location or error handling
+    end
   end
 
   def new
@@ -29,7 +48,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :details, :price, :size)
+    params.require(:pet).permit(:name, :details, :price, :size, :photo, :address)
   end
 
   def set_pet
