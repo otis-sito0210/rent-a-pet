@@ -5,3 +5,5 @@
   <p> Pet: <%= link_to order.pet.name %></p>
   <p> Rented to: <%= "#{order.user.first_name} #{order.user.last_name}" %></p>
 <% end %>
+
+<%= link_to "Available Pets", pets_path, class: "btn btn-primary" %>

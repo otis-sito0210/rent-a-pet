@@ -1,5 +1,6 @@
 <h1> My pets!</h1>
 
+
 <button class="btn btn-dark"> <%= link_to "Add new pet", new_pet_path %></button>
 
 <% @pets.each do |pet| %>
@@ -7,3 +8,6 @@
   <p><%= pet.details %></p>
   <h4>Price: <%= pet.price %></h4>
 <% end %>
+
+
+<%= link_to "Available Pets", pets_path, class: "btn btn-primary" %>
