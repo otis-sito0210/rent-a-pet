@@ -1,5 +1,6 @@
 <h1> Here's <%= @pet.name %> </h1>
 
+<%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
 <h2> Details: <%= @pet.details %> </h2>
 <h2> Size: <%= @pet.size %> </h2>
 <h2> Price: <%= @pet.price %> </h2>
