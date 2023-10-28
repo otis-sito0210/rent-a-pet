@@ -4,6 +4,10 @@ class PetsController < ApplicationController
     @pets = Pet.all
   end
 
+  def my_pets_index
+    @pets = Pet.where(user_id: current_user.id)
+  end
+
   def show
     @order = Order.new
   end

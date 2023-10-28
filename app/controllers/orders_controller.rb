@@ -4,6 +4,10 @@ class OrdersController < ApplicationController
     # @pet = Pet.find_by(id: params[:pet_id])
   end
 
+  def my_orders_index
+    @orders = Order.where(user_id: current_user.id)
+  end
+
   def create
     @order = Order.new
     @order.user = current_user

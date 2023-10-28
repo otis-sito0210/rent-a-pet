@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :pets do
     resources :orders, only: [:new, :create]
   end
+  get "my_pets", to: "pets#my_pets_index", as: "my_pets"
+  get "my_orders", to: "orders#my_orders_index", as: "my_orders"
   resources :orders, only: [:index, :update, :destroy]
 end
