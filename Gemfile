@@ -8,6 +8,8 @@ gem "rails", "~> 7.0.8"
 
 gem "cloudinary"
 
+gem "geocoder"
+
 gem "devise"
 
 gem 'faker'

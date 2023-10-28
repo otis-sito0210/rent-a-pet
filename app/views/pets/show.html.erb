@@ -4,6 +4,7 @@
 <h2> Details: <%= @pet.details %> </h2>
 <h2> Size: <%= @pet.size %> </h2>
 <h2> Price: <%= @pet.price %> </h2>
+<h2> Address: <%= @pet.address %> </h2>
 
 <div data-controller="insert-in-list">
     <h2> Rented dates: </h2>
@@ -13,7 +14,7 @@
     <% end %>
     </div>
 
-  <button class="btn btn-outline-dark"> <%= link_to "Available pets", pets_path %></button>
+<%= link_to "Available pets", pets_path, class:"btn btn-outline-dark" %>
 
   <div data-controller="orders-create">
     <button data-action="click->orders-create#fire" class="btn btn-outline-dark">Rent this pet</button>
