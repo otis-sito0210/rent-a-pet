@@ -1,7 +1,7 @@
 # Clear the existing data
-User.destroy_all
-Pet.destroy_all
 Order.destroy_all
+Pet.destroy_all
+User.destroy_all
 
 # Create 10 users
 # 10.times do
