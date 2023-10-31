@@ -1,5 +1,7 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show]
+  before_action :authenticate_user!, except: [:index]
+  
   def index
     @pets = Pet.all
     @order = Order.new
