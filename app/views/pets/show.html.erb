@@ -1,26 +1,32 @@
-<h1> Here's <%= @pet.name %> </h1>
+<div class="card-product">
+  <%= cl_image_tag @pet.photo.key, height: 400, width: 500, crop: :fill %>
+  <div class="card-product-infos m-3">
+    <h2><%= @pet.name %></h2>
+    <p>Details: <%= @pet.details %></p>
+    <p>Price: <%= @pet.price %></p>
+    <p>Size: <%= @pet.size %></p>
+    <p>Address: <%= @pet.address %></p>
+  </div>
+</div>
 
-<%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
-<h2> Details: <%= @pet.details %> </h2>
-<h2> Size: <%= @pet.size %> </h2>
-<h2> Price: <%= @pet.price %> </h2>
-<h2> Address: <%= @pet.address %> </h2>
 
-<div data-controller="insert-in-list">
-    <h2> Rented dates: </h2>
-    <div id="dates" data-insert-in-list-target="items">
-    <% @pet.orders.order("date ASC").each do |order| %>
-      <%= render "orders/order", order: order %>
-    <% end %>
-    </div>
+<div class="container mt-5">
+  <div data-controller="insert-in-list">
+      <p> Pet unavailable in the following dates: </p>
+      <div id="dates" data-insert-in-list-target="items">
+       <% @pet.orders.order("date ASC").each do |order| %>
+       <%= render "orders/order", order: order %>
+      <% end %>
+      </div>
+</div>
 
-<%= link_to "Available pets", pets_path, class:"btn btn-outline-dark" %>
-
-  <div data-controller="orders-create">
-    <button data-action="click->orders-create#fire" class="btn btn-outline-dark">Rent this pet</button>
+  <div data-controller="orders-create" class>
+    <button data-action="click->orders-create#fire" class="btn btn-flat">Rent this pet</button>
       <div data-orders-create-target="orderElement" class="d-none">
       <%= render "orders/form", order: @order %>
       </div>
   </div>
 
+
+<%= link_to "Available pets", pets_path, class:"btn btn-gradient mt-3" %>
 </div>
