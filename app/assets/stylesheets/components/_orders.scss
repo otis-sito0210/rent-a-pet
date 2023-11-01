@@ -1,0 +1,16 @@
+/* Add this CSS to ensure vertical stacking of cards and proper placement of information */
+.card-order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.card-orders-infos {
+  margin-top: 10px;
+}

@@ -1,24 +1,34 @@
-<h1>Available pets to rent!</h1>
-<%= link_to "Add new pet", new_pet_path, class:"btn btn-dark" %>
+<div class="container">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://plus.unsplash.com/premium_photo-1663091202352-a19c438ca22d?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+    <div class="container">
+      <h1>Pets to rent <strong>for a day!</strong> for <strong>people who love pets</strong>!</h1>
+      <p>Want to have a pet just for a day? Or make money with your pets? Here's the place!</p>
+      <%= link_to "Add new pet", new_pet_path, class:"btn btn-flat" %>
+    </div>
+  </div>
+</div>
 
+<div class="container mt-3">
+  <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
 
-<div style="width: 100%; height: 600px;"
-     data-controller="map"
-     data-map-markers-value="<%= @markers.to_json %>"
-     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="container mt-5 text-center">
+    <h1><strong>Meet our pets</strong></h1>
 </div>
 
 
+
 <div class="container">
-  <div class="mt-5">
-    <h2>Meet our pets</h2>
+  <div class="cards">
     <% @pets.each do |pet| %>
-      <% if pet.photo.key.present? %>
-        <%= cl_image_tag pet.photo.key, height: 300, width: 400, crop: :fill %>
-            <h2><%= link_to pet.name, pet, class: "badge bg-primary text-wrap" %></h2>
-            <p><%= pet.details %></p>
-            <p><strong>Price:</strong> <%= pet.price %></p>
-      <% end %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url(<%= cl_image_path(pet.photo.key, height: 300, width: 400, crop: :fill) %>)">
+        <%= link_to pet.name, pet, class:"pet-name"%>
+      </div>
     <% end %>
   </div>
 </div>

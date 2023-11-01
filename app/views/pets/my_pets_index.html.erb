@@ -1,15 +1,18 @@
 <h1> My pets!</h1>
 
 
-<%= link_to "Add new pet", new_pet_path, class:"btn btn-dark" %>
-<%= link_to "Available Pets", pets_path, class: "btn btn-primary" %>
+<%= link_to "Add new pet", new_pet_path, class:"btn btn-flat" %>
 
-<div class="container">
-  <% @pets.each do |pet| %>
-    <%= cl_image_tag pet.photo.key, height: 300, width: 400, crop: :fill %>
-    <h2><%= link_to pet.name, pet_path(pet), class:"badge bg-primary text-wrap" %></h2>
-    <p><%= pet.details %></p>
-    <h4>Price: <%= pet.price %></h4>
-  <% end %>
+<div class="container mt-3">
+  <div class="cards">
+    <% @pets.each do |pet| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(pet.photo.key, height: 300, width: 400, crop: :fill) %>)">
+        <%= link_to pet.name, pet, class: "pet-name" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Available pets", pets_path, class:"btn btn-gradient mt-3" %>
 
 </div>
