@@ -1,9 +1,15 @@
 <h1> My Orders!</h1>
 
 <% @orders.each do |order| %>
-  <p>Date: <%= order.date %></p>
-  <p> Pet: <%= link_to order.pet.name %></p>
-  <p> Rented to: <%= "#{order.user.first_name} #{order.user.last_name}" %></p>
+<div class="card-product mt-3">
+  <img src="<%= cl_image_path(order.pet.photo.key, height: 300, width: 400, crop: :fill) %>" />
+  <div class="card-product-infos">
+   <h2> <%= link_to order.pet.name %></h2>
+      <p><%= order.pet.details %></p>
+      <p>date: <%= order.date %></p>
+      <h2 class="card-trip-pricing">price: <%= order.pet.price %></h2>
+  </div>
+</div>
 <% end %>
 
 <%= link_to "Available pets", pets_path, class:"btn btn-gradient mt-3" %>

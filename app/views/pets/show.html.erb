@@ -23,7 +23,7 @@
   <div data-controller="orders-create" class>
     <button data-action="click->orders-create#fire" class="btn btn-flat">Rent this pet</button>
       <div data-orders-create-target="orderElement" class="d-none">
-      <%= render "orders/form", order: @order %>
+      <%= render "orders/form", order: @order, pet: @pet %>
       </div>
   </div>
 
