@@ -1,3 +1,4 @@
+<%# banner %>
 <div class="container">
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://plus.unsplash.com/premium_photo-1663091202352-a19c438ca22d?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
     <div class="container">
@@ -8,6 +9,7 @@
   </div>
 </div>
 
+<%# mapa -> info_window %>
 <div class="container mt-3">
   <div style="width: 100%; height: 600px;"
       data-controller="map"
@@ -21,7 +23,7 @@
 </div>
 
 
-
+<%# lista de pets %>
 <div class="container">
   <div class="cards">
     <% @pets.each do |pet| %>
